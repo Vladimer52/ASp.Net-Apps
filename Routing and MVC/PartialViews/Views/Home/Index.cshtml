@@ -1,0 +1,26 @@
+﻿@using PartialViews.Models
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h2> Представление Index.cshtml</h2>
+
+@*await Html.PartialAsync("_GetMessage") @*встраивание частичной вью в основную*@
+@* OR *@
+@await Html.PartialAsync("_GetMessage", new List<string> { "Lumia", "Samsung", "Iphone", "xiaomi" })
+
+@inject PartialViews.Services.ITimeService Timer
+<h2>Текущее время: @Timer.GetTime()</h2>
+@*<table class="table">
+    @foreach (Phone phone in Model.Phones)
+    {
+        <tr>
+            <td>@phone.Name</td>
+            <td>@phone.Manufacturer?.Name</td>
+            <td>@phone.Price</td>
+        </tr>
+    }
+</table> *@
+    

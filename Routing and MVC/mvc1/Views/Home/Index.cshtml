@@ -1,0 +1,42 @@
+﻿@model IEnumerable<mvc1.Models.Phone>
+@{
+    ViewData["Title"] = "Список смартфонов";
+    Layout = "~/Views/_Master.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Магазин смартфонов</title>
+</head>
+<body>
+    <h3>Смартфоны</h3>
+    <h2>@ViewData["data"]</h2>
+    <h2>@ViewBag.Message</h2>
+    @foreach (var country in ViewBag.Countries)
+    {
+        <p>@country</p>
+    }
+    <p>Random text.</p>
+    <table>
+        <tr>
+            <td>Модель</td>
+            <td>Производитель</td>
+            <td>Цена</td>
+            <td></td>
+        </tr>
+        @foreach (var phone in Model)
+        {
+            <tr>
+                <td>@phone.Name</td>
+                <td>@phone.Company</td>
+                <td>@phone.Price</td>
+                <td><a href="~/Home/Buy/@phone.Id">Купить</a></td>
+            </tr>
+        }
+    </table>
+    @section Footer{ 
+    Все права защищены 2021.
+    }
+</body>
+</html>

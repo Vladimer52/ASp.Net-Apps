@@ -1,0 +1,29 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Phones";
+    Layout = "_Layout";
+}
+
+<h1>Phones</h1>
+<form class="form-inline">
+    <label>Выберете компанию</label>
+    <select name="companyId" class="form-control">
+        @foreach (CompanyModel comp in Model.Companies)
+        {
+            <option value="@comp.Id">@comp.Name</option>
+        }
+    </select>
+    <input type="submit" />
+</form>
+<br/>
+<table class="table">
+    @foreach (Phone phone in Model.Phones)
+    {
+        <tr>
+            <td>@phone.Name</td>
+            <td>@phone.Manufacturer?.Name</td>
+            <td>@phone.Price</td>
+        </tr>
+    }
+</table>
+

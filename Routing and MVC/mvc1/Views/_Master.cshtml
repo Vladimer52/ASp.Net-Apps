@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>@RenderSection("Footer2", false)</footer> @*false = не обязательный параметр*@
+    @*или*@
+    <footer>
+        @if (IsSectionDefined("Footer"))
+        {
+            @RenderSection("Footer");
+        }
+        else
+        {
+            <span>default footer text</span>
+        }
+    </footer>
+</body>
+</html>
